@@ -104,12 +104,20 @@ class MeasureTest(unittest.TestCase):
         arial = self.font('Arial')
         with mock.patch.dict(os.environ, {'UNSCREENSHOT_NO_RAQM': '1'}):
             self.assertEqual(T.measure(arial, 'Hello', 100)['method'], 'basic')
-            m = T.measure(arial, 'مرحبا بالعالم', 100)
-            self.assertEqual((m['method'], m['width_ok']), ('arabic-joiner', True))
-            joined, apart = m['x1'] - m['x0'], T.ink_extents(load_font(arial, 100), 'مرحبا بالعالم')
-            self.assertLess(joined, 0.85 * (apart[2] - apart[0]))  # joined letters are much narrower
         if T.raqm_available():
             self.assertEqual(T.measure(arial, 'Hello', 100)['method'], 'raqm')
+
+    def test_arabic_joiner(self):
+        text = 'مرحبا بالعالم'
+        arial = self.font('Arial')
+        if T.missing_glyphs(arial, T.arabic_shape(text)):
+            # Liberation Sans and Arimo, Arial's twins on Linux, have no Arabic letters
+            self.skipTest('this Arial has no Arabic presentation forms')
+        with mock.patch.dict(os.environ, {'UNSCREENSHOT_NO_RAQM': '1'}):
+            m = T.measure(arial, text, 100)
+            self.assertEqual((m['method'], m['width_ok']), ('arabic-joiner', True))
+            joined, apart = m['x1'] - m['x0'], T.ink_extents(load_font(arial, 100), text)
+            self.assertLess(joined, 0.85 * (apart[2] - apart[0]))  # joined letters are much narrower
 
     def test_indic_without_shaping_is_flagged(self):
         nirmala = self.font('Nirmala UI')

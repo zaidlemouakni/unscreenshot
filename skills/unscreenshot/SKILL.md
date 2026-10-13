@@ -44,7 +44,7 @@ A PDF gives one image per page: one slide per page, in order. Several images: pr
 **6. Spec.** Write `work/spec.json` following `reference/spec-format.md` (complete example: `reference/example-spec.json`).
 - Elements in **paint order**: background → frames and cards → inner panels → bars, pills, shapes → rules → icons → texts.
 - Anchor geometry on the analysis with `"from": "T12"` (or `["T12", "T13"]` for a multi-line block), `"from": "R4"`, `"from": "L2"`, `"from": "G7"`. The script fills x, baseline, width, cap height, line pitch, boxes and colours, without overwriting what you wrote.
-- `"role"` on texts of the same kind (`"bullet"`, `"kpi"`, `"card-title"`…): fit.py gives them one size (median), and check.py keeps it.
+- `"role"` on texts of the same kind (`"bullet"`, `"kpi"`, `"card-title"`…): fit.py gives them one size (the median of those measured on their own font), and check.py keeps it.
 - Letter-spaced capitals (eyebrows, labels): `"fit": {"mode": "spacing"}` → size from the cap height, letter-spacing from the width. Never for Arabic or Devanagari: letter-spacing breaks their joins.
 - `"lang"` on the spec (the slide's language, BCP-47 such as `ar-SA`, `ja-JP`) and on elements in another language. `"dir": "rtl"` is detected from the letters: give it only for a line without letters in a mixed slide.
 

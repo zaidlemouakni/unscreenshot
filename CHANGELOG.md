@@ -18,7 +18,7 @@ First public release.
   - An annotated overview and enlarged line sheets help transcription.
 - `fit.py`: resolves `from` references (pieces of one line joined with `+`).
   - Fits the font size on the measured ink width (real ink, not Pillow's layout box) with the font PowerPoint will use for that script.
-  - One size per role.
+  - One size per role: the median of the texts measured on their own font, so a text sized from a substitute font does not pull the others.
 - `build_pptx.py` on `pptx_writer.py`: a dependency-free .pptx writer (text boxes with exact line spacing, bullets, preset shapes with adjustments, polygons, connectors, pictures, groups).
 - `check.py`: renders with LibreOffice or PowerPoint and writes side-by-side and overlay images, a per-text report and a corrected spec.
   - Errors are measured on the anchored edge.

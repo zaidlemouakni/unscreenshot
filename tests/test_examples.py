@@ -42,8 +42,9 @@ EXAMPLES = {
 }
 
 
+from fit import MEASURED  # noqa: E402 (helpers put the scripts on sys.path)
+
 ALPHABETIC = ('LATIN', 'CYRILLIC', 'GREEK')
-MEASURED = ('width', 'cap+spacing', 'height+spacing', 'headline')
 
 
 def spec_words(el):
@@ -200,7 +201,8 @@ class TestArabic(ExampleBase, unittest.TestCase):
     def test_right_to_left_layout(self):
         for name in ('title', 'subtitle', 'kpi1-value', 'q1-text', 'footer'):
             with self.subTest(element=name):
-                ppr = self.shapes[name].find('.//a:pPr', NS)
+                # a text whose line pitch is tight is built as one box per line: '<id>-l1', '<id>-l2'...
+                ppr = (self.shapes.get(name) or self.shapes[f'{name}-l1']).find('.//a:pPr', NS)
                 self.assertEqual((ppr.get('rtl'), ppr.get('algn')), ('1', 'r'))
         bullets = self.shapes['risks-list'].findall('.//a:pPr', NS)
         self.assertEqual({(p.get('rtl'), p.get('algn')) for p in bullets}, {('1', 'r')})

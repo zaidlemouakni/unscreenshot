@@ -24,6 +24,9 @@ from textshape import (HEADLINE_SCRIPTS, bands, guess_lang, ink_extents, measure
                        missing_glyphs, paragraph_rtl, profile)
 
 M = 200  # measuring size (px)
+# fit methods that solve the size from the font's own measured glyphs; the others ('body height', 'height',
+# 'cap') estimate it
+MEASURED = ('width', 'cap+spacing', 'height+spacing', 'headline')
 
 
 def index_analysis(an):
@@ -336,7 +339,10 @@ def main():
     for role, els in roles.items():
         if len(els) < 2:
             continue
-        med = sorted(e['size'] for e in els)[len(els) // 2]
+        # sizes measured on the font PowerPoint will use outweigh estimates (substitute font, no shaping engine)
+        trusted = [e for e in els if e.get('fitted', {}).get('exact') and e['fitted'].get('method') in MEASURED]
+        pool = trusted or els
+        med = sorted(e['size'] for e in pool)[len(pool) // 2]
         for el in els:
             f = med / el['size']
             el['size'] = round(med, 2)
@@ -349,7 +355,8 @@ def main():
                 el['spacing'] = round((fi['target_w'] - fi['ink_w']) / max(1, fi.get('n', 2) - 1), 3)
             if 'band_em' in el:  # the dense-band shift scales with the size
                 el['baseline'] = round(el['baseline_src'] - el['band_em'] * el['size'], 2)
-        rows.append(f"role {role}: one size {med} for {len(els)} elements")
+        rows.append(f"role {role}: one size {med} for {len(els)} elements"
+                    + (f" (median of the {len(pool)} measured on their own font)" if len(pool) < len(els) else ''))
     out = a.out or a.spec.replace('.json', '.fitted.json')
     save_json(spec, out)
     print('\n'.join(rows))
