@@ -188,8 +188,9 @@ def fit_text(el, slide_lang='en-US'):
     else:
         sample_box = boxes[0] if len(boxes) == 1 else None
     cap_px = fit.get('cap', el.get('cap'))
-    # full-width CJK text is one em per character in every CJK font: its width is exact with any of them
-    trusted = bool(exact) or prof['fullwidth']
+    # full-width CJK text is one em per character in every CJK font: its width is exact with any of them, as
+    # long as the font has the characters (a font without them draws boxes of its own width)
+    trusted = bool(exact) or (prof['fullwidth'] and bool(path) and not missing_glyphs(path, joined))
     info = {'font': fam, 'font_file': os.path.basename(split_index(path)[0]) if path else None,
             'resolved': resolved, 'exact': trusted, 'lang': lang, 'script': prof['script']}
     font = load_font(path, M) if path else None
