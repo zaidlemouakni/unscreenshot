@@ -93,8 +93,13 @@ class MetadataTest(unittest.TestCase):
             self.assertTrue(os.path.isfile(os.path.join(SCRIPTS, name)), name)
         for name in re.findall(r'reference/([\w.-]+\.(?:md|json))', self.skill_md):
             self.assertTrue(os.path.isfile(os.path.join(SKILL, 'reference', name)), name)
-        tools = {os.path.basename(p) for p in glob.glob(os.path.join(SCRIPTS, '*.py'))} - {'common.py', 'pptx_writer.py', 'textshape.py'}
-        self.assertEqual(tools - mentioned, set(), 'every tool script is documented in SKILL.md')
+        # tool scripts are documented in SKILL.md or in the reference guides it points to
+        for ref in glob.glob(os.path.join(SKILL, 'reference', '*.md')):
+            with open(ref, encoding='utf-8') as f:
+                mentioned |= set(re.findall(r'scripts/([a-z_]+\.py)', f.read()))
+        tools = {os.path.basename(p) for p in glob.glob(os.path.join(SCRIPTS, '*.py'))} - {
+            'common.py', 'fontmatch.py', 'pptx_writer.py', 'textshape.py'}
+        self.assertEqual(tools - mentioned, set(), 'every tool script is documented in SKILL.md or reference/')
 
     def test_scripts_make_no_network_calls(self):
         banned = re.compile(r'^\s*(?:import|from)\s+(urllib|requests|http|socket|ftplib|smtplib|httpx|aiohttp)\b', re.M)

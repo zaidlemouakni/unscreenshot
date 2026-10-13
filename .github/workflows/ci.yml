@@ -100,5 +100,5 @@ jobs:
           claude plugin install unscreenshot@unscreenshot
           claude plugin list | tee plugin-list.txt
           grep -q "enabled" plugin-list.txt || { echo "::error::plugin failed to load"; exit 1; }
-          test -f "$CLAUDE_CONFIG_DIR/plugins/cache/unscreenshot/unscreenshot/1.0.0/skills/unscreenshot/SKILL.md" \
+          test -f "$CLAUDE_CONFIG_DIR/plugins/cache/unscreenshot/unscreenshot/1.1.0/skills/unscreenshot/SKILL.md" \
             || find "$CLAUDE_CONFIG_DIR/plugins" -name SKILL.md | grep -q unscreenshot

@@ -37,4 +37,4 @@ body:
     attributes:
       label: unscreenshot version
       description: "`metadata.version` in `skills/unscreenshot/SKILL.md`, or the release you installed."
-      placeholder: "1.0.0"
+      placeholder: "1.1.0"

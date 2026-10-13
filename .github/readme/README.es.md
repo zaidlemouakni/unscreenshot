@@ -101,11 +101,11 @@ Un OCR te da el texto, no la diapositiva. Un conversor necesita el PDF original.
 
 ## Cómo funciona
 
-El asistente (cualquier modelo que vea imágenes) lee y decide. Pequeños scripts de Python, probados, miden y construyen.
+El asistente (cualquier modelo que vea imágenes) solo lee el texto. Pequeños scripts de Python probados hacen todo lo demás, así que el resultado es el mismo con un modelo pequeño o uno grande.
 
 1. **Análisis**: encontrar cada línea de texto, forma rellena, filete, viñeta e icono; medir líneas base, anchos de tinta y colores.
-2. **Lectura**: el modelo transcribe cada línea a partir de recortes ampliados y decide qué es cada elemento.
-3. **Spec**: el modelo escribe una descripción JSON de la diapositiva que se apoya en las mediciones.
+2. **Lectura**: el modelo escribe cada línea de texto a partir de recortes ampliados; los scripts señalan cualquier línea cuya lectura no encaja con la imagen.
+3. **Spec**: los scripts escriben la descripción de la diapositiva a partir de las medidas: formas, chevrones, viñetas, fuentes, tamaños, alineación.
 4. **Ajuste**: el tamaño de las fuentes se calcula para que el ancho de tinta de cada texto coincida con la imagen, escritura por escritura.
 5. **Construcción**: un generador sin dependencias produce el `.pptx` (solo Pillow y numpy).
 6. **Verificación**: la diapositiva se renderiza (LibreOffice o PowerPoint), se compara con la imagen y se corrige, tres rondas como máximo.

@@ -101,11 +101,11 @@ OCR gives you the text, not the slide. A converter needs the original PDF. A gen
 
 ## How it works
 
-The assistant (any model that can see images) does the reading and the judgement. Small, tested Python scripts do the measuring and the building.
+The assistant (any model that can see images) only reads the text. Small, tested Python scripts do everything else, so the result is the same with a small model or a large one.
 
 1. **Analyse**: find every text line, filled shape, rule, bullet dot and icon; measure baselines, ink widths and colours.
-2. **Read**: the model transcribes each line from enlarged crops and decides what each element is.
-3. **Spec**: the model writes a JSON description of the slide that points at the measurements.
+2. **Read**: the model types each text line from enlarged crops; the scripts flag any line whose reading does not fit the image.
+3. **Spec**: the scripts write the slide's description from the measurements: shapes, chevrons, bullets, fonts, sizes, alignment.
 4. **Fit**: font sizes are solved so each text's ink width matches the image, script by script.
 5. **Build**: a dependency-free writer produces the `.pptx` (Pillow and numpy only).
 6. **Check**: the slide is rendered (LibreOffice or PowerPoint), compared with the image, and corrected, three rounds at most.

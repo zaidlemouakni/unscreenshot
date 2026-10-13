@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.1.0 (2026-10-13)
+
+The same result with any model: the scripts now build the whole slide, and the model only reads the text.
+
+- `run.py`: the whole rebuild in two commands.
+  - `start` prepares and analyses each page, then writes the reading sheets and `texts.txt`.
+  - `finish` writes the spec, fits, builds, renders and corrects (up to 3 rounds, keeping the best).
+  - `finish` also lists the lines whose reading does not fit the image, with enlarged crops to re-read.
+- `draft.py`: writes the complete spec from the analysis and the texts.
+  - Shapes: chevrons (tip, notch, direction), card borders and corner radii, paint order.
+  - Text: bullets, multi-line blocks, alignment, roles, coloured runs, letter-spaced capitals.
+  - Groups.
+- `fontmatch.py`: picks each style's font, and its weight.
+  - Font: by comparing letter shapes, among the installed Office fonts.
+  - Weight: by stroke coverage.
+- Lines are read whole: pieces split around CJK punctuation, colons, percent signs and separators are joined before the model sees them.
+- `SKILL.md` is now a short checklist that any model can follow; the detailed method moved to `reference/expert.md`.
+- `evals/`: a deterministic scorer (text, objects and edges against the reference) and a runner that compares models on the examples.
+- Tests: `test_auto.py` rebuilds the four examples with the scripts alone.
+
 ## 1.0.0 (2026-10-13)
 
 First public release.

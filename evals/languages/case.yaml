@@ -1,0 +1,21 @@
+schema_version: "1.0"
+name: languages
+description: Rebuild the languages example slide from its image; the result is scored by evals/score.py.
+tags: [slide]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: |
+    Rebuild the slide in source.png (in the current folder) as an editable PowerPoint, identical.
+    Save the result as slide.pptx in the current folder.
+  max_turns: 120
+  timeout_seconds: 2400
+  allowed_tools: [Bash, Read, Write, Edit, Glob, Grep, Skill]
+runs: 1
+graders:
+  - type: file_exists
+    name: pptx-written
+    path: slide.pptx
+  - type: tool_used
+    name: skill-used
+    tool: Skill

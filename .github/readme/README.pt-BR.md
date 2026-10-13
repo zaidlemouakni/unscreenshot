@@ -101,11 +101,11 @@ Um OCR entrega o texto, não o slide. Um conversor precisa do PDF original. Um g
 
 ## Como funciona
 
-O assistente (qualquer modelo que enxergue imagens) lê e decide. Pequenos scripts em Python, testados, medem e constroem.
+O assistente (qualquer modelo que veja imagens) só lê o texto. Pequenos scripts Python testados fazem todo o resto, então o resultado é o mesmo com um modelo pequeno ou grande.
 
 1. **Análise**: encontrar cada linha de texto, forma preenchida, fio, marcador e ícone; medir linhas de base, larguras de tinta e cores.
-2. **Leitura**: o modelo transcreve cada linha a partir de recortes ampliados e decide o que é cada elemento.
-3. **Spec**: o modelo escreve uma descrição JSON do slide apoiada nas medições.
+2. **Leitura**: o modelo digita cada linha de texto a partir de recortes ampliados; os scripts apontam qualquer linha cuja leitura não bate com a imagem.
+3. **Spec**: os scripts escrevem a descrição do slide a partir das medições: formas, chevrons, marcadores, fontes, tamanhos, alinhamento.
 4. **Ajuste**: o tamanho das fontes é calculado para que a largura de tinta de cada texto bata com a imagem, escrita por escrita.
 5. **Construção**: um gerador sem dependências produz o `.pptx` (só Pillow e numpy).
 6. **Verificação**: o slide é renderizado (LibreOffice ou PowerPoint), comparado com a imagem e corrigido, no máximo três rodadas.

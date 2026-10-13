@@ -101,11 +101,11 @@ OCR cho bạn chữ, không phải slide. Công cụ chuyển đổi cần file 
 
 ## Cách hoạt động
 
-Trợ lý (bất kỳ mô hình nào nhìn được ảnh) đọc và quyết định. Các script Python nhỏ, đã được kiểm thử, thực hiện việc đo và dựng.
+Trợ lý (bất kỳ mô hình nào xem được ảnh) chỉ đọc chữ. Mọi việc còn lại do các script Python nhỏ, đã được kiểm thử, đảm nhận, nên kết quả như nhau dù dùng mô hình nhỏ hay lớn.
 
 1. **Phân tích**: tìm mọi dòng chữ, hình tô màu, đường kẻ, chấm đầu dòng và biểu tượng; đo đường cơ sở, độ rộng nét mực và màu sắc.
-2. **Đọc**: mô hình chép lại từng dòng từ ảnh phóng to và xác định từng thành phần là gì.
-3. **Mô tả**: mô hình viết bản mô tả JSON của slide dựa trên các phép đo.
+2. **Đọc**: mô hình gõ lại từng dòng chữ từ ảnh phóng to; các script đánh dấu dòng nào đọc không khớp với ảnh.
+3. **Mô tả**: các script viết mô tả slide từ số đo: hình khối, mũi tên chevron, gạch đầu dòng, phông chữ, cỡ chữ, căn lề.
 4. **Khớp cỡ chữ**: cỡ chữ được tính sao cho độ rộng nét mực của mỗi đoạn văn bản khớp với ảnh, theo từng hệ chữ.
 5. **Dựng**: một bộ tạo không phụ thuộc thư viện ngoài xuất ra file `.pptx` (chỉ cần Pillow và numpy).
 6. **Kiểm tra**: slide được kết xuất (LibreOffice hoặc PowerPoint), so sánh với ảnh và sửa lại, tối đa ba vòng.
