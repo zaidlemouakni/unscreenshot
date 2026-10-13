@@ -24,6 +24,14 @@ from textshape import guess_lang, paragraph_rtl, profile  # noqa: E402
 LANG_OF = {'arabic': 'ar-SA', 'hebrew': 'he-IL', 'cjk': 'ja-JP', 'indic': 'hi-IN', 'sea': 'th-TH'}
 
 
+def rel(path, start):
+    """`path` relative to `start`, or absolute when they are on different drives (Windows)."""
+    try:
+        return os.path.relpath(path, start)
+    except ValueError:
+        return os.path.abspath(path)
+
+
 def rgb_of(hexcol):
     h = (hexcol or '#000000').lstrip('#')
     return np.array([int(h[i:i + 2], 16) for i in (0, 2, 4)])
@@ -568,7 +576,7 @@ def draft(an, texts, source_png, spec_dir):
         els.append(e)
     title = next((e['lines'][0] if isinstance(e['lines'][0], str) else ''.join(r['text'] for r in e['lines'][0])
                   for e in els if e['type'] == 'text'), 'Slide')
-    return {'source': os.path.relpath(source_png, spec_dir), 'analysis': 'analysis.json', 'size': [an['width'], an['height']],
+    return {'source': rel(source_png, spec_dir), 'analysis': 'analysis.json', 'size': [an['width'], an['height']],
             'background': an['background'], 'lang': slide_lang, 'title': title[:80], 'elements': els}
 
 
@@ -673,7 +681,7 @@ def main():
         print('  !', p)
     out = a.out or os.path.join(os.path.dirname(os.path.abspath(a.analysis)), 'spec.json')
     spec = draft(an, texts, an['image'], os.path.dirname(os.path.abspath(out)))
-    spec['analysis'] = os.path.relpath(os.path.abspath(a.analysis), os.path.dirname(os.path.abspath(out)))
+    spec['analysis'] = rel(os.path.abspath(a.analysis), os.path.dirname(os.path.abspath(out)))
     save_json(spec, out)
     kinds = Counter(e['type'] for e in spec['elements'])
     print(f"spec: {len(spec['elements'])} elements ({', '.join(f'{v} {k}' for k, v in kinds.items())}), "
