@@ -1,0 +1,41 @@
+{
+  "name": "unscreenshot",
+  "version": "1.0.0",
+  "description": "Rebuild a slide image (screenshot, PNG, JPG, PDF page) as an editable PowerPoint that matches it pixel for pixel.",
+  "author": {
+    "name": "unscreenshot",
+    "url": "https://github.com/zaidlemouakni"
+  },
+  "homepage": "https://github.com/zaidlemouakni/unscreenshot",
+  "repository": "https://github.com/zaidlemouakni/unscreenshot",
+  "license": "MIT",
+  "keywords": [
+    "powerpoint",
+    "pptx",
+    "slides",
+    "screenshot",
+    "skills",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Unscreenshot",
+    "shortDescription": "Slide image to editable PowerPoint",
+    "longDescription": "Give Codex a picture of a slide (screenshot, PNG, JPG, PDF page) and get back a .pptx where every text box, bullet, card, line and colour is measured on the image and rebuilt as a native, editable PowerPoint object.",
+    "developerName": "unscreenshot",
+    "category": "Productivity",
+    "capabilities": [
+      "Instructions",
+      "Scripts"
+    ],
+    "websiteURL": "https://github.com/zaidlemouakni/unscreenshot",
+    "defaultPrompt": [
+      "Rebuild this slide image as an editable PowerPoint.",
+      "Turn these screenshots into one editable .pptx, one slide each.",
+      "Convert this PDF page to an editable slide, identical."
+    ],
+    "brandColor": "#F26B3A",
+    "composerIcon": "./docs/logo.png",
+    "logo": "./docs/logo.png"
+  }
+}

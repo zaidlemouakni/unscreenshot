@@ -1,0 +1,735 @@
+{
+ "source": "source.png",
+ "analysis": "work/analysis.json",
+ "size": [
+  1920,
+  1080
+ ],
+ "background": "#F4F6FA",
+ "lang": "en-US",
+ "title": "Quarterly update in twelve scripts",
+ "elements": [
+  {
+   "type": "text",
+   "id": "title",
+   "from": "T1",
+   "lines": [
+    "Quarterly update in twelve scripts"
+   ],
+   "font": "Segoe UI",
+   "bold": true,
+   "color": "#1B2340"
+  },
+  {
+   "type": "text",
+   "id": "subtitle",
+   "from": "T2",
+   "lines": [
+    "The same three lines in twelve languages, rebuilt as editable text from one screenshot."
+   ],
+   "font": "Segoe UI",
+   "color": "#5B6478"
+  },
+  {
+   "type": "rect",
+   "id": "card-ar-box",
+   "from": "R1",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-ar"
+  },
+  {
+   "type": "text",
+   "id": "ar-eyebrow",
+   "from": "T3",
+   "lines": [
+    "العربية"
+   ],
+   "font": "Dubai",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "ar-SA",
+   "group": "card-ar",
+   "align": "right"
+  },
+  {
+   "type": "text",
+   "id": "ar-heading",
+   "from": "T9",
+   "lines": [
+    "التقرير الفصلي"
+   ],
+   "font": "Dubai",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "ar-SA",
+   "group": "card-ar",
+   "align": "right"
+  },
+  {
+   "type": "text",
+   "id": "ar-lines",
+   "from": [
+    "T12",
+    "T15"
+   ],
+   "lines": [
+    "نمو الإيرادات ١٢٪",
+    "إطلاق المنتج في الربع الثالث"
+   ],
+   "font": "Dubai",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "ar-SA",
+   "group": "card-ar",
+   "align": "right"
+  },
+  {
+   "type": "rect",
+   "id": "card-fa-box",
+   "from": "R2",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-fa"
+  },
+  {
+   "type": "text",
+   "id": "fa-eyebrow",
+   "from": "T5",
+   "lines": [
+    "فارسی"
+   ],
+   "font": "Segoe UI Semibold",
+   "bold": false,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "fa-IR",
+   "group": "card-fa",
+   "align": "right"
+  },
+  {
+   "type": "text",
+   "id": "fa-heading",
+   "from": "T7",
+   "lines": [
+    "گزارش سه‌ماهه"
+   ],
+   "font": "Segoe UI",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "fa-IR",
+   "group": "card-fa",
+   "align": "right"
+  },
+  {
+   "type": "text",
+   "id": "fa-lines",
+   "from": [
+    "T11",
+    "T18"
+   ],
+   "lines": [
+    [
+     {
+      "text": "رشد درآمد "
+     },
+     {
+      "text": "۱۲٪",
+      "lang": "en-US"
+     }
+    ],
+    "عرضهٔ محصول در سه‌ماههٔ سوم"
+   ],
+   "font": "Segoe UI",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "fa-IR",
+   "group": "card-fa",
+   "align": "right"
+  },
+  {
+   "type": "rect",
+   "id": "card-he-box",
+   "from": "R3",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-he"
+  },
+  {
+   "type": "text",
+   "id": "he-eyebrow",
+   "from": "T6",
+   "lines": [
+    "עברית"
+   ],
+   "font": "Segoe UI Semibold",
+   "bold": false,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "he-IL",
+   "group": "card-he",
+   "align": "right"
+  },
+  {
+   "type": "text",
+   "id": "he-heading",
+   "from": "T10",
+   "lines": [
+    "דוח רבעוני"
+   ],
+   "font": "Segoe UI",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "he-IL",
+   "group": "card-he",
+   "align": "right"
+  },
+  {
+   "type": "text",
+   "id": "he-lines",
+   "from": [
+    "T14",
+    "T17"
+   ],
+   "lines": [
+    "צמיחה בהכנסות 12%",
+    "השקת המוצר ברבעון השלישי"
+   ],
+   "font": "Segoe UI",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "he-IL",
+   "group": "card-he",
+   "align": "right"
+  },
+  {
+   "type": "rect",
+   "id": "card-zh-box",
+   "from": "R4",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-zh"
+  },
+  {
+   "type": "text",
+   "id": "zh-eyebrow",
+   "from": "T4",
+   "lines": [
+    "中文"
+   ],
+   "font": "Microsoft YaHei",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "zh-CN",
+   "group": "card-zh"
+  },
+  {
+   "type": "text",
+   "id": "zh-heading",
+   "from": "T8",
+   "lines": [
+    "季度报告"
+   ],
+   "font": "Microsoft YaHei",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "zh-CN",
+   "group": "card-zh"
+  },
+  {
+   "type": "text",
+   "id": "zh-lines",
+   "from": [
+    "T13",
+    "T16"
+   ],
+   "lines": [
+    "收入增长 12%",
+    "第三季度推出新产品"
+   ],
+   "font": "Microsoft YaHei",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "zh-CN",
+   "group": "card-zh"
+  },
+  {
+   "type": "rect",
+   "id": "card-ja-box",
+   "from": "R5",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-ja"
+  },
+  {
+   "type": "text",
+   "id": "ja-eyebrow",
+   "from": "T21",
+   "lines": [
+    "日本語"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "ja-JP",
+   "group": "card-ja"
+  },
+  {
+   "type": "text",
+   "id": "ja-heading",
+   "from": "T25",
+   "lines": [
+    "四半期レポート"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "ja-JP",
+   "group": "card-ja"
+  },
+  {
+   "type": "text",
+   "id": "ja-lines",
+   "from": [
+    "T28",
+    "T32"
+   ],
+   "lines": [
+    "売上高 12% 増加",
+    "第3四半期に新製品を発売"
+   ],
+   "font": "Yu Gothic",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "ja-JP",
+   "group": "card-ja"
+  },
+  {
+   "type": "rect",
+   "id": "card-ko-box",
+   "from": "R6",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-ko"
+  },
+  {
+   "type": "text",
+   "id": "ko-eyebrow",
+   "from": "T22",
+   "lines": [
+    "한국어"
+   ],
+   "font": "Malgun Gothic",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "ko-KR",
+   "group": "card-ko"
+  },
+  {
+   "type": "text",
+   "id": "ko-heading",
+   "from": "T26",
+   "lines": [
+    "분기 보고서"
+   ],
+   "font": "Malgun Gothic",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "ko-KR",
+   "group": "card-ko"
+  },
+  {
+   "type": "text",
+   "id": "ko-lines",
+   "from": [
+    "T30",
+    "T34"
+   ],
+   "lines": [
+    "매출 12% 성장",
+    "3분기 신제품 출시"
+   ],
+   "font": "Malgun Gothic",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "ko-KR",
+   "group": "card-ko"
+  },
+  {
+   "type": "rect",
+   "id": "card-hi-box",
+   "from": "R7",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-hi"
+  },
+  {
+   "type": "text",
+   "id": "hi-eyebrow",
+   "from": "T19",
+   "lines": [
+    "हिन्दी"
+   ],
+   "font": "Nirmala UI",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "hi-IN",
+   "group": "card-hi"
+  },
+  {
+   "type": "text",
+   "id": "hi-heading",
+   "from": "T23",
+   "lines": [
+    "तिमाही रिपोर्ट"
+   ],
+   "font": "Nirmala UI",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "hi-IN",
+   "group": "card-hi"
+  },
+  {
+   "type": "text",
+   "id": "hi-lines",
+   "from": [
+    "T27",
+    "T31"
+   ],
+   "lines": [
+    "राजस्व में 12% वृद्धि",
+    "तीसरी तिमाही में उत्पाद लॉन्च"
+   ],
+   "font": "Nirmala UI",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "hi-IN",
+   "group": "card-hi"
+  },
+  {
+   "type": "rect",
+   "id": "card-th-box",
+   "from": "R8",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-th"
+  },
+  {
+   "type": "text",
+   "id": "th-eyebrow",
+   "from": "T20",
+   "lines": [
+    "ไทย"
+   ],
+   "font": "Leelawadee UI",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "th-TH",
+   "group": "card-th"
+  },
+  {
+   "type": "text",
+   "id": "th-heading",
+   "from": "T24",
+   "lines": [
+    "รายงานรายไตรมาส"
+   ],
+   "font": "Leelawadee UI",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "th-TH",
+   "group": "card-th"
+  },
+  {
+   "type": "text",
+   "id": "th-lines",
+   "from": [
+    "T29",
+    "T33"
+   ],
+   "lines": [
+    "รายได้เติบโต 12%",
+    "เปิดตัวสินค้าในไตรมาสที่ 3"
+   ],
+   "font": "Leelawadee UI",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "th-TH",
+   "group": "card-th"
+  },
+  {
+   "type": "rect",
+   "id": "card-vi-box",
+   "from": "R9",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-vi"
+  },
+  {
+   "type": "text",
+   "id": "vi-eyebrow",
+   "from": "T35",
+   "lines": [
+    "Tiếng Việt"
+   ],
+   "font": "Arial",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "vi-VN",
+   "group": "card-vi"
+  },
+  {
+   "type": "text",
+   "id": "vi-heading",
+   "from": "T39",
+   "lines": [
+    "Báo cáo hàng quý"
+   ],
+   "font": "Arial",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "vi-VN",
+   "group": "card-vi"
+  },
+  {
+   "type": "text",
+   "id": "vi-lines",
+   "from": [
+    "T43",
+    "T47"
+   ],
+   "lines": [
+    "Doanh thu tăng 12%",
+    "Ra mắt sản phẩm vào quý 3"
+   ],
+   "font": "Arial",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "vi-VN",
+   "group": "card-vi"
+  },
+  {
+   "type": "rect",
+   "id": "card-ru-box",
+   "from": "R10",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-ru"
+  },
+  {
+   "type": "text",
+   "id": "ru-eyebrow",
+   "from": "T36",
+   "lines": [
+    "Русский"
+   ],
+   "font": "Calibri",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "ru-RU",
+   "group": "card-ru"
+  },
+  {
+   "type": "text",
+   "id": "ru-heading",
+   "from": "T40",
+   "lines": [
+    "Квартальный отчёт"
+   ],
+   "font": "Calibri",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "ru-RU",
+   "group": "card-ru"
+  },
+  {
+   "type": "text",
+   "id": "ru-lines",
+   "from": [
+    "T44",
+    "T50"
+   ],
+   "lines": [
+    "Рост выручки на 12%",
+    "Запуск продукта в 3-м квартале"
+   ],
+   "font": "Calibri",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "ru-RU",
+   "group": "card-ru"
+  },
+  {
+   "type": "rect",
+   "id": "card-el-box",
+   "from": "R11",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-el"
+  },
+  {
+   "type": "text",
+   "id": "el-eyebrow",
+   "from": "T37",
+   "lines": [
+    "Ελληνικά"
+   ],
+   "font": "Segoe UI Semibold",
+   "bold": false,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "el-GR",
+   "group": "card-el"
+  },
+  {
+   "type": "text",
+   "id": "el-heading",
+   "from": "T41",
+   "lines": [
+    "Τριμηνιαία αναφορά"
+   ],
+   "font": "Segoe UI",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "el-GR",
+   "group": "card-el"
+  },
+  {
+   "type": "text",
+   "id": "el-lines",
+   "from": [
+    "T45",
+    "T48"
+   ],
+   "lines": [
+    "Αύξηση εσόδων 12%",
+    "Νέο προϊόν το τρίτο τρίμηνο"
+   ],
+   "font": "Segoe UI",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "el-GR",
+   "group": "card-el"
+  },
+  {
+   "type": "rect",
+   "id": "card-es-box",
+   "from": "R12",
+   "fill": "#FFFFFF",
+   "radius": 16,
+   "line": {
+    "color": "#E3E7EF",
+    "width": 2
+   },
+   "group": "card-es"
+  },
+  {
+   "type": "text",
+   "id": "es-eyebrow",
+   "from": "T38",
+   "lines": [
+    "Español"
+   ],
+   "font": "Segoe UI Semibold",
+   "bold": false,
+   "color": "#F26B3A",
+   "role": "eyebrow",
+   "lang": "es-ES",
+   "group": "card-es"
+  },
+  {
+   "type": "text",
+   "id": "es-heading",
+   "from": "T42",
+   "lines": [
+    "Informe trimestral"
+   ],
+   "font": "Segoe UI",
+   "bold": true,
+   "color": "#1B2340",
+   "role": "heading",
+   "lang": "es-ES",
+   "group": "card-es"
+  },
+  {
+   "type": "text",
+   "id": "es-lines",
+   "from": [
+    "T46",
+    "T49"
+   ],
+   "lines": [
+    "Ingresos +12 %",
+    "Lanzamiento del producto en el T3"
+   ],
+   "font": "Segoe UI",
+   "color": "#4A5268",
+   "role": "body",
+   "lang": "es-ES",
+   "group": "card-es"
+  }
+ ]
+}

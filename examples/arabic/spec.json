@@ -1,0 +1,459 @@
+{
+ "source": "source.png",
+ "analysis": "work/analysis.json",
+ "size": [
+  1920,
+  1080
+ ],
+ "background": "#F7F8FB",
+ "lang": "ar-SA",
+ "title": "Naseem Logistics - Operations Plan 2027",
+ "elements": [
+  {
+   "type": "rect",
+   "id": "top-bar",
+   "from": "R7",
+   "fill": "#1B2340"
+  },
+  {
+   "type": "text",
+   "id": "eyebrow",
+   "from": "T1",
+   "align": "right",
+   "lines": [
+    [
+     {
+      "text": "نسيم للخدمات اللوجستية  |  ",
+      "color": "#6B7392"
+     },
+     {
+      "text": "خطة العمليات 2027",
+      "color": "#F26B3A"
+     }
+    ]
+   ],
+   "font": "Segoe UI Semibold"
+  },
+  {
+   "type": "text",
+   "id": "page-number",
+   "from": "T2",
+   "align": "left",
+   "dir": "ltr",
+   "lines": [
+    "04"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#6B7392"
+  },
+  {
+   "type": "text",
+   "id": "title",
+   "from": [
+    "T3",
+    "T4"
+   ],
+   "align": "right",
+   "lines": [
+    "توصيل أسرع وتكلفة أقل لكل طرد:",
+    "ثلاث خطوات للعام المقبل."
+   ],
+   "font": "Dubai",
+   "bold": true,
+   "color": "#1B2340"
+  },
+  {
+   "type": "text",
+   "id": "subtitle",
+   "from": "T5",
+   "align": "right",
+   "lines": [
+    "نضاعف الفرز الآلي، ونحوّل الأسطول إلى الشاحنات الكهربائية، ونفتح مركزين إقليميين."
+   ],
+   "font": "Segoe UI",
+   "color": "#59617E"
+  },
+  {
+   "type": "rect",
+   "id": "kpi1-card",
+   "box": [
+    1445,
+    341,
+    1823,
+    529
+   ],
+   "fill": "#FFFFFF",
+   "radius": 18,
+   "line": {
+    "color": "#E4E7F0",
+    "width": 2
+   },
+   "group": "kpi1"
+  },
+  {
+   "type": "text",
+   "id": "kpi1-value",
+   "from": "T8",
+   "align": "right",
+   "lines": [
+    "١٨٪"
+   ],
+   "font": "Dubai",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "kpi",
+   "group": "kpi1"
+  },
+  {
+   "type": "text",
+   "id": "kpi1-label",
+   "from": [
+    "T12",
+    "T16"
+   ],
+   "align": "right",
+   "lines": [
+    "خفض تكلفة الطرد",
+    "بحلول الربع الرابع"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#1B2340",
+   "role": "kpi-label",
+   "group": "kpi1"
+  },
+  {
+   "type": "rect",
+   "id": "kpi2-card",
+   "box": [
+    1033,
+    341,
+    1411,
+    529
+   ],
+   "fill": "#FFFFFF",
+   "radius": 18,
+   "line": {
+    "color": "#E4E7F0",
+    "width": 2
+   },
+   "group": "kpi2"
+  },
+  {
+   "type": "text",
+   "id": "kpi2-value",
+   "from": "T9",
+   "align": "right",
+   "lines": [
+    "٢٫١ يوم"
+   ],
+   "font": "Dubai",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "kpi",
+   "group": "kpi2"
+  },
+  {
+   "type": "text",
+   "id": "kpi2-label",
+   "from": [
+    "T13",
+    "T14"
+   ],
+   "align": "right",
+   "lines": [
+    "متوسط مدة التوصيل",
+    "(بدلاً من ٣٫٤ أيام)"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#1B2340",
+   "role": "kpi-label",
+   "group": "kpi2"
+  },
+  {
+   "type": "rect",
+   "id": "kpi3-card",
+   "box": [
+    621,
+    341,
+    999,
+    529
+   ],
+   "fill": "#FFFFFF",
+   "radius": 18,
+   "line": {
+    "color": "#E4E7F0",
+    "width": 2
+   },
+   "group": "kpi3"
+  },
+  {
+   "type": "text",
+   "id": "kpi3-value",
+   "from": "T7+M1",
+   "align": "right",
+   "lines": [
+    "٦٠٪"
+   ],
+   "font": "Dubai",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "kpi",
+   "group": "kpi3"
+  },
+  {
+   "type": "text",
+   "id": "kpi3-label",
+   "from": [
+    "T11",
+    "T15"
+   ],
+   "align": "right",
+   "lines": [
+    "من الأسطول كهربائي",
+    "(مقابل ٢٢٪)"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#1B2340",
+   "role": "kpi-label",
+   "group": "kpi3"
+  },
+  {
+   "type": "rect",
+   "id": "risks-panel",
+   "from": "R1",
+   "fill": "#1B2340",
+   "radius": 18,
+   "group": "risks"
+  },
+  {
+   "type": "text",
+   "id": "risks-title",
+   "from": "T6",
+   "align": "right",
+   "lines": [
+    "أبرز المخاطر"
+   ],
+   "font": "Dubai",
+   "bold": true,
+   "color": "#FFFFFF",
+   "group": "risks"
+  },
+  {
+   "type": "bullets",
+   "id": "risks-list",
+   "from": [
+    "T10",
+    "T17",
+    "T18",
+    "T20"
+   ],
+   "x": 540,
+   "items": [
+    "تأخر تسليم الشاحنات الكهربائية",
+    "نقص الفنيين المؤهلين",
+    "ارتفاع أسعار الطاقة في الشتاء",
+    "تصاريح بناء المراكز الإقليمية"
+   ],
+   "font": "Segoe UI",
+   "color": "#D7DBEA",
+   "bullet": "●",
+   "bullet_color": "#F26B3A",
+   "bullet_size": 125,
+   "group": "risks"
+  },
+  {
+   "type": "text",
+   "id": "roadmap-label",
+   "from": "T19",
+   "align": "right",
+   "lines": [
+    "خارطة الطريق 2027"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#6B7392"
+  },
+  {
+   "type": "arrow",
+   "id": "q1-bar",
+   "box": [
+    1524,
+    630,
+    1824,
+    702
+   ],
+   "tip": 28,
+   "fill": "#F26B3A",
+   "flip": "h"
+  },
+  {
+   "type": "text",
+   "id": "q1-label",
+   "from": "T21",
+   "align": "center",
+   "lines": [
+    "الربع الأول"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q1-text",
+   "from": [
+    "T26",
+    "T32"
+   ],
+   "align": "right",
+   "lines": [
+    "تشغيل خط الفرز الآلي",
+    "في المركز الرئيسي"
+   ],
+   "font": "Segoe UI",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "arrow",
+   "id": "q2-bar",
+   "box": [
+    1240,
+    630,
+    1540,
+    702
+   ],
+   "tip": 28,
+   "fill": "#1B2340",
+   "flip": "h",
+   "notch": true
+  },
+  {
+   "type": "text",
+   "id": "q2-label",
+   "from": "T23",
+   "align": "center",
+   "lines": [
+    "الربع الثاني"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q2-text",
+   "from": [
+    "T25",
+    "T31"
+   ],
+   "align": "right",
+   "lines": [
+    "استلام أول ١٢٠ شاحنة",
+    "كهربائية"
+   ],
+   "font": "Segoe UI",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "arrow",
+   "id": "q3-bar",
+   "box": [
+    956,
+    630,
+    1256,
+    702
+   ],
+   "tip": 28,
+   "fill": "#3A4470",
+   "flip": "h",
+   "notch": true
+  },
+  {
+   "type": "text",
+   "id": "q3-label",
+   "from": "T22",
+   "align": "center",
+   "lines": [
+    "الربع الثالث"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q3-text",
+   "from": [
+    "T28",
+    "T30"
+   ],
+   "align": "right",
+   "lines": [
+    "افتتاح المركز الإقليمي",
+    "الشمالي"
+   ],
+   "font": "Segoe UI",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "arrow",
+   "id": "q4-bar",
+   "box": [
+    672,
+    630,
+    972,
+    702
+   ],
+   "tip": 28,
+   "fill": "#59617E",
+   "flip": "h",
+   "notch": true
+  },
+  {
+   "type": "text",
+   "id": "q4-label",
+   "from": "T24",
+   "align": "center",
+   "lines": [
+    "الربع الرابع"
+   ],
+   "font": "Segoe UI Semibold",
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q4-text",
+   "from": [
+    "T27",
+    "T29"
+   ],
+   "align": "right",
+   "lines": [
+    "افتتاح المركز الإقليمي",
+    "الجنوبي"
+   ],
+   "font": "Segoe UI",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "line",
+   "id": "footer-rule",
+   "from": "L1"
+  },
+  {
+   "type": "text",
+   "id": "footer",
+   "from": "T33",
+   "align": "right",
+   "lines": [
+    "المصدر: بيانات العمليات الداخلية، سبتمبر 2026. أرقام توضيحية."
+   ],
+   "font": "Segoe UI",
+   "color": "#8A91AB"
+  }
+ ]
+}

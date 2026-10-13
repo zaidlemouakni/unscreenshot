@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions and ideas
+    url: https://github.com/zaidlemouakni/unscreenshot/discussions
+    about: Ask how to use it, show a slide it rebuilt, suggest a feature.
+  - name: Security
+    url: https://github.com/zaidlemouakni/unscreenshot/security/advisories/new
+    about: Report a vulnerability privately.

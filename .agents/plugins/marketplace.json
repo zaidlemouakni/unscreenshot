@@ -1,0 +1,21 @@
+{
+  "name": "unscreenshot",
+  "interface": {
+    "displayName": "Unscreenshot"
+  },
+  "plugins": [
+    {
+      "name": "unscreenshot",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/zaidlemouakni/unscreenshot.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

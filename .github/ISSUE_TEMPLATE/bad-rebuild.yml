@@ -1,0 +1,40 @@
+name: Bad rebuild
+description: A slide that did not come back right.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hard slides are the most useful contribution: thank you. Only share images you are allowed to share, and blur anything confidential.
+  - type: textarea
+    id: source
+    attributes:
+      label: Source image
+      description: Drag the image here (PNG, JPG, WebP or a PDF page).
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: What you got
+      description: The `.pptx`, or `out/check/side_by_side.png` and `report.txt`, and what looks wrong.
+    validations:
+      required: true
+  - type: input
+    id: assistant
+    attributes:
+      label: Assistant and model
+      placeholder: "Claude Code with Opus, ChatGPT, Gemini CLI…"
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language(s) on the slide
+      placeholder: "Arabic and English"
+  - type: input
+    id: version
+    attributes:
+      label: unscreenshot version
+      description: "`metadata.version` in `skills/unscreenshot/SKILL.md`, or the release you installed."
+      placeholder: "1.0.0"

@@ -1,0 +1,20 @@
+{
+  "name": "unscreenshot",
+  "version": "1.0.0",
+  "description": "Rebuild a slide image (screenshot, PNG, JPG, PDF page) as an editable PowerPoint that matches it pixel for pixel.",
+  "author": {
+    "name": "unscreenshot",
+    "url": "https://github.com/zaidlemouakni"
+  },
+  "homepage": "https://github.com/zaidlemouakni/unscreenshot",
+  "repository": "https://github.com/zaidlemouakni/unscreenshot",
+  "license": "MIT",
+  "keywords": [
+    "powerpoint",
+    "pptx",
+    "slides",
+    "screenshot",
+    "image-to-pptx",
+    "skills"
+  ]
+}

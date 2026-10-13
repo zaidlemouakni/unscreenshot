@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# build output
+dist/
+
+# working folders created by the scripts
+work/
+work_*/
+out/
+check/
+*.fitted.json
+spec.corrected.json
+examples/*/work/
+examples/*/out/

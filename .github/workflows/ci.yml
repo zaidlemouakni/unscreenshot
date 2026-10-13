@@ -1,0 +1,94 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}${{ matrix.scipy && '' || ' / fallbacks' }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Linux with LibreOffice: full round trip (analyse, fit, build, render, compare)
+          - os: ubuntu-latest
+            python: '3.12'
+            scipy: true
+            libreoffice: true
+          # oldest supported Python, every fallback: no scipy, no fontTools, no text-shaping engine
+          - os: ubuntu-latest
+            python: '3.10'
+            scipy: false
+            libreoffice: false
+            no_raqm: true
+          - os: windows-latest
+            python: '3.13'
+            scipy: true
+            libreoffice: false
+          - os: macos-latest
+            python: '3.12'
+            scipy: true
+            libreoffice: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: LibreOffice, metric-compatible fonts, fonts for every script, text shaping
+        if: matrix.libreoffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libreoffice-impress \
+            fonts-liberation fonts-crosextra-carlito fonts-crosextra-caladea fonts-urw-base35 poppler-utils \
+            fonts-noto-core fonts-noto-cjk libfribidi0
+
+      - name: Python packages
+        run: python -m pip install pillow numpy ${{ matrix.scipy && 'scipy python-pptx fonttools' || '' }}
+
+      - name: Environment report
+        run: python skills/unscreenshot/scripts/env_check.py
+
+      - name: Tests
+        env:
+          UNSCREENSHOT_KEEP: ${{ runner.temp }}/unscreenshot-roundtrip
+          UNSCREENSHOT_NO_RAQM: ${{ matrix.no_raqm && '1' || '' }}
+        run: python -m unittest discover -s tests -v
+
+      - name: Package
+        run: python scripts/package_skill.py
+
+      - name: Round-trip images
+        if: matrix.libreoffice && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: roundtrip-${{ matrix.os }}-${{ matrix.python }}
+          path: ${{ runner.temp }}/unscreenshot-roundtrip/
+          if-no-files-found: ignore
+
+  claude-plugin:
+    name: plugin loads in Claude Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Validate, install from this checkout, check it is enabled
+        run: |
+          export CLAUDE_CONFIG_DIR="$RUNNER_TEMP/claude-scratch"
+          mkdir -p "$CLAUDE_CONFIG_DIR"
+          claude plugin validate .
+          claude plugin validate .claude-plugin/plugin.json
+          claude plugin marketplace add "$GITHUB_WORKSPACE"
+          claude plugin install unscreenshot@unscreenshot
+          claude plugin list | tee plugin-list.txt
+          grep -q "enabled" plugin-list.txt || { echo "::error::plugin failed to load"; exit 1; }
+          test -f "$CLAUDE_CONFIG_DIR/plugins/cache/unscreenshot/unscreenshot/1.0.0/skills/unscreenshot/SKILL.md" \
+            || find "$CLAUDE_CONFIG_DIR/plugins" -name SKILL.md | grep -q unscreenshot

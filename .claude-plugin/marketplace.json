@@ -1,0 +1,16 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "unscreenshot",
+  "description": "Screenshot in, editable PowerPoint out, pixel for pixel.",
+  "owner": {
+    "name": "unscreenshot"
+  },
+  "plugins": [
+    {
+      "name": "unscreenshot",
+      "description": "Rebuild a slide image as an editable, pixel-exact PowerPoint.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

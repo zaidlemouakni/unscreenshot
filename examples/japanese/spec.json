@@ -1,0 +1,451 @@
+{
+ "source": "source.png",
+ "analysis": "work/analysis.json",
+ "size": [
+  1920,
+  1080
+ ],
+ "background": "#F7F8FB",
+ "lang": "ja-JP",
+ "title": "Sakura Butsuryu - FY2027 business plan",
+ "elements": [
+  {
+   "type": "rect",
+   "id": "top-bar",
+   "from": "R6",
+   "fill": "#1B2340"
+  },
+  {
+   "type": "text",
+   "id": "eyebrow",
+   "from": "T1+G1+T2",
+   "lines": [
+    [
+     {
+      "text": "さくら物流 ｜ ",
+      "color": "#6B7392"
+     },
+     {
+      "text": "2027年度 事業計画",
+      "color": "#F26B3A"
+     }
+    ]
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "fit": {
+    "mode": "spacing"
+   }
+  },
+  {
+   "type": "text",
+   "id": "page-number",
+   "from": "T3",
+   "align": "right",
+   "lines": [
+    "04"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#6B7392"
+  },
+  {
+   "type": "text",
+   "id": "title",
+   "from": [
+    "T4+T6+T5+M1+M2",
+    "T7"
+   ],
+   "lines": [
+    "配送を速く、1個あたりのコストを低く：",
+    "来年に向けた3つの施策"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#1B2340"
+  },
+  {
+   "type": "text",
+   "id": "subtitle",
+   "from": "T9+T10+T8",
+   "lines": [
+    "自動仕分けを倍増し、EV バンへの移行を進め、地域ハブを2か所開設します。"
+   ],
+   "font": "Yu Gothic",
+   "color": "#59617E"
+  },
+  {
+   "type": "rect",
+   "id": "kpi1-card",
+   "box": [
+    97,
+    341,
+    475,
+    529
+   ],
+   "fill": "#FFFFFF",
+   "radius": 18,
+   "line": {
+    "color": "#E4E7F0",
+    "width": 2
+   },
+   "group": "kpi1"
+  },
+  {
+   "type": "text",
+   "id": "kpi1-value",
+   "from": "T12",
+   "lines": [
+    "-18%"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "kpi",
+   "group": "kpi1"
+  },
+  {
+   "type": "text",
+   "id": "kpi1-label",
+   "from": [
+    "T16",
+    "T19"
+   ],
+   "lines": [
+    "1個あたりの配送コスト",
+    "（2027年第4四半期まで）"
+   ],
+   "font": "Yu Gothic",
+   "color": "#1B2340",
+   "role": "kpi-label",
+   "group": "kpi1"
+  },
+  {
+   "type": "rect",
+   "id": "kpi2-card",
+   "box": [
+    509,
+    341,
+    887,
+    529
+   ],
+   "fill": "#FFFFFF",
+   "radius": 18,
+   "line": {
+    "color": "#E4E7F0",
+    "width": 2
+   },
+   "group": "kpi2"
+  },
+  {
+   "type": "text",
+   "id": "kpi2-value",
+   "from": "T13",
+   "lines": [
+    "2.1日"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "kpi",
+   "group": "kpi2"
+  },
+  {
+   "type": "text",
+   "id": "kpi2-label",
+   "from": [
+    "T17",
+    "T20"
+   ],
+   "lines": [
+    "平均配送日数",
+    "（現在 3.4日）"
+   ],
+   "font": "Yu Gothic",
+   "color": "#1B2340",
+   "role": "kpi-label",
+   "group": "kpi2"
+  },
+  {
+   "type": "rect",
+   "id": "kpi3-card",
+   "box": [
+    921,
+    341,
+    1299,
+    529
+   ],
+   "fill": "#FFFFFF",
+   "radius": 18,
+   "line": {
+    "color": "#E4E7F0",
+    "width": 2
+   },
+   "group": "kpi3"
+  },
+  {
+   "type": "text",
+   "id": "kpi3-value",
+   "from": "T14",
+   "lines": [
+    "60%"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#F26B3A",
+   "role": "kpi",
+   "group": "kpi3"
+  },
+  {
+   "type": "text",
+   "id": "kpi3-label",
+   "from": [
+    "T18",
+    "T21"
+   ],
+   "lines": [
+    "EV 化した車両の比率",
+    "（現在 22%）"
+   ],
+   "font": "Yu Gothic",
+   "color": "#1B2340",
+   "role": "kpi-label",
+   "group": "kpi3"
+  },
+  {
+   "type": "rect",
+   "id": "risks-panel",
+   "from": "R1",
+   "fill": "#1B2340",
+   "radius": 18,
+   "group": "risks"
+  },
+  {
+   "type": "text",
+   "id": "risks-title",
+   "from": "T11",
+   "lines": [
+    "主なリスク"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#FFFFFF",
+   "group": "risks"
+  },
+  {
+   "type": "bullets",
+   "id": "risks-list",
+   "from": [
+    "T15",
+    "T22",
+    "T23",
+    "T25"
+   ],
+   "x": 1380,
+   "items": [
+    "EV バンの納車遅延",
+    "整備士の不足",
+    "冬季のエネルギー価格の上昇",
+    "地域ハブの建築許可"
+   ],
+   "font": "Yu Gothic",
+   "color": "#D7DBEA",
+   "bullet": "●",
+   "bullet_color": "#F26B3A",
+   "bullet_size": 125,
+   "group": "risks"
+  },
+  {
+   "type": "text",
+   "id": "roadmap-label",
+   "from": "T24",
+   "lines": [
+    "ロードマップ 2027"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#6B7392",
+   "fit": {
+    "mode": "spacing"
+   }
+  },
+  {
+   "type": "arrow",
+   "id": "q1-bar",
+   "box": [
+    96,
+    630,
+    396,
+    702
+   ],
+   "tip": 28,
+   "fill": "#F26B3A"
+  },
+  {
+   "type": "text",
+   "id": "q1-label",
+   "from": "T26",
+   "align": "center",
+   "lines": [
+    "第1四半期"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q1-text",
+   "from": [
+    "T32",
+    "T34"
+   ],
+   "lines": [
+    "本社に自動仕分けライン",
+    "を稼働"
+   ],
+   "font": "Yu Gothic",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "arrow",
+   "id": "q2-bar",
+   "box": [
+    380,
+    630,
+    680,
+    702
+   ],
+   "tip": 28,
+   "fill": "#1B2340",
+   "notch": true
+  },
+  {
+   "type": "text",
+   "id": "q2-label",
+   "from": "T27",
+   "align": "center",
+   "lines": [
+    "第2四半期"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q2-text",
+   "from": [
+    "T33",
+    "T35"
+   ],
+   "lines": [
+    "EV バン 120 台を",
+    "受領"
+   ],
+   "font": "Yu Gothic",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "arrow",
+   "id": "q3-bar",
+   "box": [
+    664,
+    630,
+    964,
+    702
+   ],
+   "tip": 28,
+   "fill": "#3A4470",
+   "notch": true
+  },
+  {
+   "type": "text",
+   "id": "q3-label",
+   "from": "T28",
+   "align": "center",
+   "lines": [
+    "第3四半期"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q3-text",
+   "from": [
+    "T30",
+    "T36"
+   ],
+   "lines": [
+    "北部地域ハブを",
+    "開設"
+   ],
+   "font": "Yu Gothic",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "arrow",
+   "id": "q4-bar",
+   "box": [
+    948,
+    630,
+    1248,
+    702
+   ],
+   "tip": 28,
+   "fill": "#59617E",
+   "notch": true
+  },
+  {
+   "type": "text",
+   "id": "q4-label",
+   "from": "T29",
+   "align": "center",
+   "lines": [
+    "第4四半期"
+   ],
+   "font": "Yu Gothic",
+   "bold": true,
+   "color": "#FFFFFF",
+   "role": "chevron"
+  },
+  {
+   "type": "text",
+   "id": "q4-text",
+   "from": [
+    "T31",
+    "T37"
+   ],
+   "lines": [
+    "南部地域ハブを",
+    "開設"
+   ],
+   "font": "Yu Gothic",
+   "color": "#59617E",
+   "role": "quarter"
+  },
+  {
+   "type": "line",
+   "id": "footer-rule",
+   "from": "L1"
+  },
+  {
+   "type": "text",
+   "id": "footer",
+   "from": "T38",
+   "lines": [
+    "出典：社内オペレーションデータ（2026年9月）。数値は説明用です。"
+   ],
+   "font": "Yu Gothic",
+   "color": "#8A91AB"
+  }
+ ]
+}

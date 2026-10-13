@@ -1,0 +1,7 @@
+interface:
+  display_name: "Unscreenshot"
+  short_description: "Slide image to editable PowerPoint"
+  default_prompt: "Use $unscreenshot to rebuild this slide image as an editable PowerPoint, identical."
+
+policy:
+  allow_implicit_invocation: true

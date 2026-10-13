@@ -1,0 +1,39 @@
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tests
+        run: |
+          python -m pip install pillow numpy scipy
+          UNSCREENSHOT_RENDER=0 python -m unittest discover -s tests -v
+
+      - name: Version matches the tag
+        run: |
+          v=$(python -c "import json; print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          test "v$v" = "${GITHUB_REF_NAME}" || { echo "tag ${GITHUB_REF_NAME} != version $v"; exit 1; }
+
+      - name: Build the skill archives
+        run: python scripts/package_skill.py
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          notes=$(awk '/^## /{n++} n==1' CHANGELOG.md)
+          gh release create "${GITHUB_REF_NAME}" dist/unscreenshot.zip dist/unscreenshot-flat.zip \
+            --title "${GITHUB_REF_NAME}" --notes "$notes"
