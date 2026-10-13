@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   test:
-    name: ${{ matrix.os }} / Python ${{ matrix.python }}${{ matrix.scipy && '' || ' / fallbacks' }}
+    name: ${{ matrix.os }} / Python ${{ matrix.python }}${{ !matrix.scipy && ' / fallbacks' || '' }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -36,10 +36,12 @@ jobs:
             python: '3.12'
             scipy: true
             libreoffice: false
+    env:
+      PYTHONUTF8: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: ${{ matrix.python }}
 
@@ -58,17 +60,25 @@ jobs:
         run: python skills/unscreenshot/scripts/env_check.py
 
       - name: Tests
+        shell: bash
         env:
           UNSCREENSHOT_KEEP: ${{ runner.temp }}/unscreenshot-roundtrip
           UNSCREENSHOT_NO_RAQM: ${{ matrix.no_raqm && '1' || '' }}
-        run: python -m unittest discover -s tests -v
+        run: |
+          set -o pipefail
+          python -m unittest discover -s tests -v 2>&1 | tee test-output.txt
+
+      - name: Failing tests as annotations
+        if: failure()
+        shell: bash
+        run: python .github/scripts/annotate_failures.py test-output.txt
 
       - name: Package
         run: python scripts/package_skill.py
 
       - name: Round-trip images
         if: matrix.libreoffice && always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: roundtrip-${{ matrix.os }}-${{ matrix.python }}
           path: ${{ runner.temp }}/unscreenshot-roundtrip/
@@ -78,7 +88,7 @@ jobs:
     name: plugin loads in Claude Code
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: npm install -g @anthropic-ai/claude-code
       - name: Validate, install from this checkout, check it is enabled
         run: |

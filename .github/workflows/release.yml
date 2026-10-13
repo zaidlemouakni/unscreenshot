@@ -10,17 +10,24 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      PYTHONUTF8: '1'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
       - name: Tests
         run: |
+          set -o pipefail
           python -m pip install pillow numpy scipy
-          UNSCREENSHOT_RENDER=0 python -m unittest discover -s tests -v
+          UNSCREENSHOT_RENDER=0 python -m unittest discover -s tests -v 2>&1 | tee test-output.txt
+
+      - name: Failing tests as annotations
+        if: failure()
+        run: python .github/scripts/annotate_failures.py test-output.txt
 
       - name: Version matches the tag
         run: |

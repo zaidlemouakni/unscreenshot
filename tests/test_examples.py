@@ -2,7 +2,9 @@
 
 The specs reference analysis ids (T#, R#, M#...); if analyze.py starts numbering or measuring differently, the
 positions below move and these tests say so. Sizes and non-Latin baselines are only checked where the fonts
-used here have exact metrics (on other systems they are estimated). UNSCREENSHOT_KEEP=<folder> keeps outputs.
+used here have exact metrics and were measured (on other systems, or without fontTools for fonts that need it,
+they are estimated), and x gets a few pixels of slack with a substitute font. UNSCREENSHOT_KEEP=<folder> keeps
+outputs.
 """
 import json
 import os
@@ -38,6 +40,10 @@ EXAMPLES = {
                    'kpi2-value': (544, 428.36, 60.16), 'kpi1-label': (133, 477.83, 19.17),
                    'risks-list': (1380, 461.61, 20.03), 'q2-text': (395, 741.98, 18.13), 'footer': (98, 1027.08, 14.69)}},
 }
+
+
+ALPHABETIC = ('LATIN', 'CYRILLIC', 'GREEK')
+MEASURED = ('width', 'cap+spacing', 'height+spacing', 'headline')
 
 
 def spec_words(el):
@@ -104,13 +110,18 @@ class ExampleBase:
     def test_positions_and_sizes(self):
         for name, (x, base, size) in self.conf['expect'].items():
             el = self.fitted[name]
-            exact = el['fitted']['exact']
+            f = el['fitted']
+            # exact: the font PowerPoint will use is installed here and the fit measured on it
+            exact = f['exact'] and bool(f.get('method'))
             with self.subTest(element=name):
-                self.assertLessEqual(abs(el['x'] - x), 2, f"x {el['x']} != {x}")
-                # baselines of non-Latin scripts come from the font's own glyphs: exact fonts only
-                if exact or el.get('baseline_from') == 'analysis':
+                # x depends on the side bearings of the font actually used: a substitute moves it a little
+                self.assertLessEqual(abs(el['x'] - x), 2 if exact else 6, f"x {el['x']} != {x}")
+                # the analysis baseline is the real one for alphabetic scripts; the others are corrected on the
+                # font's own glyphs (CJK ink box, Indic headline, Arabic letter bodies)
+                if exact or (el.get('baseline_from') == 'analysis' and f.get('script') in ALPHABETIC):
                     self.assertLessEqual(abs(el['baseline'] - base), 2, f"baseline {el['baseline']} != {base}")
-                if exact:
+                # sizes solved from measured ink; 'body height' and 'height' are estimates (an unshaped font)
+                if exact and f.get('method') in MEASURED:
                     self.assertAlmostEqual(el['size'], size, delta=0.04 * size)
 
     def test_roles_share_one_size(self):
